@@ -1,301 +1,51 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>海报画廊</title>
-    <style type="text/css">
-        * {
-            margin: 0;
-            padding: 0;
-        }
+<head>
+<meta charset="UTF-8">
+<title>HOME</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="shortcut icon" href="favicon.ico"/>
+<link rel="bookmark" href="favicon.ico"/>
 
-        .wrap {
-            position: relative;
-            width: 1200px;
-            height: 600px;
-            margin: 20px auto;
-            border: 1px solid green;
-        }
-
-        .wrap .photo {
-            position: absolute;
-            width: 195px;
-            height: 152px;
-            perspective: 800px
-        }
-
-        .wrap .photo_center {
-            top: 60%;
-            left: 50%;
-            margin: -98px 0 0 -76px;
-            z-index: 200;
-        }
-
-        .wrap .photo .photo_warp {
-            width: 100%;
-            -webkit-transform-style: preserve-3d;
-            -o-transform-style: preserve-3d;
-            -ms-transform-style: preserve-3d;
-            -moz-transform-style: preserve-3d;
-            transform-style: preserve-3d;
-            /*   border: 1px solid blue;*/
-            -webkit-transition: all 2s;
-        }
-
-        .wrap .photo .back {
-            -webkit-transform: rotateY(0deg);
-            -o-transform: rotateY(0deg);
-            -ms-transform: rotateY(0deg);
-            -moz-transform: rotateY(0deg);
-            transform: rotateY(0deg);
-            -webkit-transition: all 2.6s;
-            -o-transition: all 2.6s;
-            -ms-transition: all 2.6s;
-            -moz-transition: all 2.6s;
-            transition: all 2.6s;
-        }
-
-        .wrap .photo .front {
-            -webkit-transform: rotateY(540deg);
-            -o-transform: rotateY(540deg);
-            -ms-transform: rotateY(540deg);
-            -moz-transform: rotateY(540deg);
-            transform: rotateY(540deg);
-            -webkit-transition: all 2.6s;
-            -o-transition: all 2.6s;
-            -ms-transition: all 2.6s;
-            -moz-transition: all 2.6s;
-            transition: all 2.6s;
-        }
-
-        .wrap .photo .side_front {
-            -webkit-backface-visibility: hidden;
-            -ms-backface-visibility: hidden;
-            -o-backface-visibility: hidden;
-            -moz-backface-visibility: hidden;
-            backface-visibility: hidden;
-            border: 2px solid #555;
-            padding-bottom:3px;
-            width: 190px;
-            font-weight: bold;
-            letter-spacing: 5px;
-            color: darkgrey;
-            text-align: center;
-            background-color: #FFF;
-        }
-
-        .wrap .photo .side_back
-        {
-            position: absolute;
-            top: 10px;
-            border: 2px solid #555;
-            width: 190px;
-            height: 130px;
-            letter-spacing: 5px;
-            text-align: center;
-            background-color: #FFF;
-
-            -webkit-transform: rotateY(180deg);
-            -o-transform: rotateY(180deg);
-            -ms-transform: rotateY(180deg);
-            -moz-transform: rotateY(180deg);
-            transform: rotateY(180deg);
-            -webkit-backface-visibility: hidden;
-            -ms-backface-visibility: hidden;
-            -o-backface-visibility: hidden;
-            -moz-backface-visibility: hidden;
-            backface-visibility: hidden;
-        }
-
-        .wrap .photo .side_back .des {
-            line-height: 25px;
-            padding: 40px 0;
-        }
-        .nav
-        {
-            position: absolute;
-            bottom: 6%;
-            left: 28%;
-        }
-        .nav .ctrl:hover
-        {
-            background-color: cadetblue;
-            cursor: pointer;
-        }
-        .nav .ctrl
-        {
-            background-color: #555555;
-            /*  border: 1px solid chartreuse;*/
-            margin-left: 2px;
-            border-radius: 50%;
-            text-shadow: 8px 8px 5px #666;
-            color: #FFFFFF;
-            display: inline-block;
-            text-align: center;
-            width: 25px;
-            height: 25px;
-        }
-    </style>
 </head>
-
-  <script type="text/javascript">
-      //定义数据
-      var data=
-              [
-                  {img:1,caption:'变色龙',des:'这是一条黄色的变色龙啊，小心！'} ,
-                  {img:2,caption:'小小鸟',des:'我是一只小小鸟，想要飞啊飞，飞啊飞不高！'} ,
-                  {img:3,caption:'牵牛花',des:'一朵牵手花，多么可美丽亮人'} ,
-                  {img:4,caption:'小蜜蜂',des:'一只小蜜蜂在认真地采集花粉'} ,
-                  {img:5,caption:'回眸',des:'生活不是电影，不会有那么多的不期而遇'} ,
-                  {img:6,caption:'小黑狗',des:'拉布拉多小黑狗在思念它的主人吗？'} ,
-                  {img:7,caption:'城市',des:'府视电影里大城市，好像一直都找不到归属感'} ,
-                  {img:8,caption:'路途',des:'一路奔波，不知道前方的日子会变得怎样'} ,
-                  {img:9,caption:'美女',des:'这是一个外国风情美女啊。'} ,
-                  {img:10,caption:'大高塔',des:'这是一座大高塔！'} ,
-                  {img:11,caption:'向日葵',des:'我们应该活得像向日葵一样，每天面对积极的阳光！'} ,
-                  {img:12,caption:'沙滩',des:'沙滩里遗落下不只黑色的北包'} ,
-                  {img:13,caption:'潜水艇',des:'这是一台速度惊人的潜水艇'},
-                  {img:14,caption:'一对小白狗',des:'这是一对白色的小白狗啊，好可爱！'} ,
-                  {img:15,caption:'水珠',des:'无色透明的小水珠，晶莹剔透！'} ,
-                  {img:16,caption:'心情',des:'我本来就不快乐，还要为你难过'} ,
-                  {img:17,caption:'接吻',des:'接吻是一种无声的表达！'} ,
-                  {img:18,caption:'白狗',des:'这是一条穿着衣服的白狗！'} ,
-                  {img:19,caption:'眼镜',des:'一双框黑眼镜！'} ,
-                  {img:20,caption:'向上',des:'跟着贵人，一直向上爬！'} ,
-                  {img:21,caption:'蛋蛋糕',des:'白色的生日大蛋糕！'}
-              ];
-      function switchP(element)
-      {
-         /* alert("nini")*/
-        /*  var _ele=element;*/
-            if(element.className=='photo')
-            {
-                //this.style.backgroundColor="blue";
-                element=element.getElementsByTagName("div")[0];
-            }
-            if(/back/.test(element.className)==true)
-            {
-                element.className = element.className.replace(/back/, 'front');
-            }
-            else
-            {
-                element.className = element.className.replace(/front/, 'back');
-            }
-      }
-      //输出图片
-      function g(id)
-      {
-          var method=id.substr(0,1)=='.'?'getElementsByClassName':'getElementById';
-          if(method=='getElementsByClassName')
-             id=id.substr(1);
-          return document[method](id);
-      }
-    /*  g.g=g();*/
-      function outputPhotos()
-      {
-          var template=g('all_template');
-          template.innerHTML=template.innerHTML.replace(/\s*/,'');
-          var _tem=[],_t;
-          var nav=[];
-          for(i in data)
-          {
-              var s=parseInt(i)+1;
-              _t=template.innerHTML.replace(/{{index}}/g,data[i].img).replace(/{{caption}}/g,data[i].caption).replace('{{des}}',data[i].des);
-              _tem.push(_t);
-            var b='<span id =ctrl_'+s+' class=ctrl onclick=switchP(g("photo_'+s+'"))>♫</span>';
-           // var b='<span id =ctrl_'+s+' class=ctrl onclick=switchP(g("photo_'+s+'").getElementsByClassName("back")[0])>'+'♫'+'</span>';
-              nav.push(b);
-
-          }
-          _tem.push('<div class="nav"'+'>'+nav.join("")+'</div>');
-          template.innerHTML=_tem.join('');
-      }
-      //生成一个随机数
-       function outn(range)
-       {
-           var max=Math.max(range[0],range[1]);
-           var min=Math.min(range[0],range[1]);
-           var cha=max-min;
-           var number =Math.ceil(Math.random()*cha+min);
-           return number;
-       }
-      //生成左右两边的随机坐标
-      function outcord()
-      {
-          var range={left:{x:[],y:[]},right:{x:[],y:[]}};
-          var wrap=
-          {
-              w:g(".wrap")[0].clientWidth,
-              h:g('.wrap')[0].clientHeight
-          };
-          var photo=
-          {
-              h:g('.photo')[0].clientHeight,
-              w:g('.photo')[0].clientWidth
-          };
-          range.left.x=[20,Math.ceil(wrap.w/2)-Math.ceil(photo.w*1.2)];
-          range.left.y=[20,wrap.h-photo.h-20];
-          range.right.x=[Math.ceil(wrap.w/2)+Math.ceil(photo.w/2),wrap.w-photo.w-20];
-          range.right.y=[20,wrap.h-photo.h-20];
-     /*     range.wrap=wrap;
-          range.photo=photo;*/
-          return range;
-      }
-      //随机生成中问图和左右两边图
-      function random(n)
-      {
-          var target=g('photo_'+n);
-          var all=g('.photo');
-          var allphoto=[];
-          for(var i=0;i< all.length;i++)
-          {
-              all[i].className=all[i].className.replace('photo_center','');
-              allphoto.push(all[i]);
-          }
-          target=allphoto.splice(n,1)[0];
-          target.className+=' photo_center';
-
-          var photo_left=allphoto.splice(0,Math.ceil(allphoto.length/2));
-          var photo_right=allphoto;
-          var ranges=outcord();
-          for(s in photo_left)
-          {
-              var photo_le=photo_left[s];
-              photo_le.style.left=outn([ranges.left.x[0],ranges.left.x[1]])+'px';
-              photo_le.style.top=outn([ranges.left.y[0],ranges.left.y[1]])+'px';
-              photo_le.style['-webkit-transform']='rotate('+outn([-120,130])+'deg)';
-          }
-          for(j in photo_right)
-          {
-              var photo_ri=photo_right[j];
-              photo_ri.style.left=outn([ranges.right.x[0],ranges.right.x[1]])+'px';
-              photo_ri.style.top=outn([ranges.right.y[0],ranges.right.y[1]])+'px';
-              photo_ri.style['-webkit-transform']='rotate('+outn([-120,130])+'deg)';
-              photo_ri.style['-moz-transform']='rotate('+outn([-120,130])+'deg)';
-              photo_ri.style['-ms-transform']='rotate('+outn([-120,130])+'deg)';
-              photo_ri.style['-o-transform']='rotate('+outn([-120,130])+'deg)';
-              photo_ri.style['transform']='rotate('+outn([-120,130])+'deg)';
-          }
-      }
-      window.onload=function()
-      {
-          outputPhotos();
-          random(outn([0,20]));
-      }
-  </script>
 <body>
-   <div class="wrap" id="all_template">
-       <div class="photo" id="photo_{{index}}">
-           <div class="photo_warp back" onclick="switchP(this)">
-           <div class="side side_front">
-               <p class="image"><img src="images/{{index}}.jpg"></p>
-               <p class="caption">{{caption}}</p>
-           </div>
-           <div class="side side_back">
-               <p class="des">{{des}}</p>
-           </div>
-       </div>
-       </div>
-   </div>
+<!-- 代码部分begin -->
+<div class="contentbox">
+	<div class="qcontainer">
+		<a href="http://ftp595230.host605.zhujiwu.me/bei_demo/home.html">
+			<div class="film">
+				<div class="face front"><img src="images/img1.jpg"></div>
+				<div class="face back"><h3>众创杯</h3></div>
+			</div>
+		</a>
+	</div>
+	<div class="qcontainer">
+		<a href="http://ftp595230.host605.zhujiwu.me/2048/2048.html">
+			<div class="film">
+				<div class="face front"><img src="images/img2.jpg"></div>
+				<div class="face back"><h3>2048游戏</h3></div>
+			</div>
+		</a>
+	</div>
+	<div class="qcontainer">
+		<a href="http://ftp595230.host605.zhujiwu.me/xiaomifeng/index.html">
+			<div class="film">
+				<div class="face front"><img src="images/img3.jpg"></div>
+				<div class="face back"><h3>小蜜蜂游戏</h3></div>
+			</div>
+		</a>
+	</div>
+	<div class="qcontainer">
+		<a href="https://hgithub520.github.io/home/home/FISdemo/index.html">
+			<div class="film">
+				<div class="face front"><img src="images/img4.jpg"></div>
+				<div class="face back"><h3>FIS解决方案</h3></div>
+			</div>
+		</a>
+	</div>
+</div>
+<a href="resume.doc">下载我的简历</a>
+<!-- 代码部分end -->
+
 </body>
 </html>
