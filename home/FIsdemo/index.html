@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Fis framework</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+      <header>
+          <ul>
+              <li><a href="#">FIS解决方案</a></li>
+              <li><a href="#">首页</a></li>
+              <li><a href="#">FIS官网</a></li>
+              <li><a href="#">FEX官网</a></li>
+          </ul>
+     </header>
+     <div class="wrap">
+         <div class="content">
+              <h3 class="text">使用<a href="#"> FIS </a> ,轻松定制属于你的解决方案</h3>
+             <ul class="list">
+                 <li><a id="tt" class="active" title="点击查看介绍" href="#">fis-plus</a></li><li>
+                 <a class="activ" title="点击查看介绍" href="#">yog2</a></li><li>
+                 <a title="点击查看介绍" href="#">jello</a></li><li>
+                 <a title="点击查看介绍" href="#">pure</a></li><li>
+                 <a title="点击查看介绍" href="#">gois</a></li>
+             </ul>
+              <div class="box">
+                  <div class="des">
+                      <ul>
+                          <li id="fis-plus" class="show"> 基于PHP的前端集成解决方案，面向自动化，减少人工管理静态资源成本和风险，
+                              全自动优化页面性能、减少服务器开销；面向定制化，包括PC、Mobile、I18n等大量个性化解决方案。
+                          </li>
+                          <li id="yog2" class="hide">
+                              基于Node的前后端解决方案
+                          </li>
+                          <li id="jello" class="hide">
+                              基于Java的前端集成解决方案
+                          </li>
+                          <li id="pure" class="hide">
+                              纯前端模块化解决方案
+                          </li>
+                          <li id="gois" class="hide">
+                              基于Go的前后端解决方案
+                          </li>
+                      </ul>
+                      <div class="wbtn">
+                          <a class="btn" href="#">查看详细</a>
+                          <img src="github.png">
+                      </div>
+                  </div>
+              </div>
+              <div class="box2">
+                  <div class="left_triangle"></div>
+                  <div class="bottom_triangle"></div>
+                  <div class="top_twotriangle">
+                      <div class="t_first"></div>
+                      <div class="t_second"></div>
+                  </div>
+                  <div class="right_toptriangle"></div>
+                  <div class="middel"></div>
+                  <div class="middel_two">
+                      <div class="middle_first"></div>
+                      <div class="middle_second"></div>
+                  </div>
+                  <div class="right_bottomtriangle"></div>
+              </div>
+         </div>
+         <footer>
+             <p>CopyRight &copy; 2014 FIS Baidu | 联系我们: oak@baidu.com</p>
+         </footer>
+     </div>
+<script src="jquery-2.1.1.min.js"></script>
+<script>
+  $(function(){
+      $(".list a").click(function(){
+             $(".list a").attr("class","");
+             $(this).attr("class","active");
+             $(".box2").attr("class","box2 "+$(this).text());
+          var that=$(this);
+          $(".des li").attr("class","hide").css("opacity",0).each(function(index,ele){
+              if(that.text()==$(this).attr("id"))
+              {
+               var st=document.getElementById($(this).attr("id"));
+                  var timer=null,opa=0;
+                  timer=setInterval(function(){
+                      opa+=0.1;
+                      if(opa>=1)
+                      {
+                       opa=1;
+                       clearInterval(timer);
+                      }
+                      st.style.opacity=opa;
+                  },30);
+               ele.className="show";
+              }
+          })
+      })
+  })
+</script>
+</body>
+</html>

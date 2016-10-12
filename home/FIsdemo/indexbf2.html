@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Fis framework</title>
+    <style>
+        @font-face {
+            font-family: myfont;
+            src:url("AdobeGothicStd-Bold.otf");
+        }
+        *
+        {
+            margin: 0;
+            padding: 0;
+        }
+        a
+        {
+            text-decoration: none;
+        }
+        ul,li
+        {
+            list-style: none;
+        }
+        header
+        {
+            width: 100%;
+            height: 60px;
+            background-color: white;
+        }
+        header ul
+        {
+            width: 980px;
+            margin: 0 auto;
+        }
+        header ul li
+        {
+            display: inline-block;
+            line-height: 60px;
+            font-weight: bolder;
+        }
+        header ul li:first-child:after
+        {
+            content: "";
+            display: block;
+            width: 320px;
+            height: 60px;
+        }
+        header ul li:nth-child(1) a:hover, header ul li:nth-child(2) a:hover
+        {
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgb(0, 184, 223);
+        }
+        header ul li:nth-child(2) ~ li
+        {
+            margin-left: 70px;
+        }
+        header ul li a
+        {
+            color: #00b8df;
+            padding: 10px 0px;
+            line-height: 55px;
+            font-weight: bolder;
+            font-size: 14px;
+            font-family: myfont;
+        }
+
+        .wrap
+        {
+            width: 100%;
+            height: 607px;
+            color: white;
+            background-color: rgb(0, 184, 223);
+        }
+        .wrap .content
+        {
+            width: 900px;
+            text-align: center;
+            position: relative;
+            margin: 0 auto;
+        }
+        .wrap .content .text
+        {
+            font-size: 14px;
+            font-weight: normal;
+            padding-top: 45px;
+        }
+        .wrap .content .text a
+        {
+            color: yellow;
+        }
+
+       .content .list li:first-child ~ li
+       /* .content ul li:nth-child(1) ~ li*/
+        {
+            border-left: none;
+        }
+        .content .list li:first-child
+        {
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+        .content .list li:last-child
+        {
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+        .list
+        {
+            margin-top: 23px;
+        }
+        .list li
+        {
+            display: inline-block;
+            border: 1px solid white;
+        }
+        .list li a
+        {
+            color: white;
+            display: block;
+            padding: 5px 20px;
+            font-weight: 700;
+        }
+        .list li .active
+        {
+            background-color: #B7DAF5;
+            color: #1B8FC5;
+        }
+        .list li a:hover
+        {
+            background-color: #B7DAF5;
+            color: #1B8FC5;
+        }
+/*        .box .des ul .text
+        {
+            margin-top: 20px;
+            width:450px;
+            float: right;
+            font-size: 24px;
+            line-height: 40px;
+            color: white;
+            font-weight: bold;
+            text-align: left;
+            opacity: 1;
+        }*/
+        .box .des ul .hide
+        {
+            opacity: 0;
+           /* display: none;*/
+          /*  -webkit-transition: opacity 2s ease;*/
+        }
+        .content .box .des .show
+        {
+          /*  -webkit-transition: all 2s ease;*/
+            -webkit-transition: all 0.6s ease;
+            opacity: 1;
+            display: block;
+            margin-top: 20px;
+            width:450px;
+            float: right;
+            font-size: 24px;
+            line-height: 40px;
+            color: white;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .box .des
+        {
+            width: 450px;
+            float: right;
+        }
+        .des .wbtn
+        {
+            position: relative;
+            top: 0px;
+           right: 0px;
+        }
+        .des .wbtn .btn
+        {
+            width: 210px;
+            height: 65px;
+            margin-top: 60px;
+            line-height: 65px;
+            font-family: myfont;
+            font-weight: bolder;
+            background-color: white;
+            color:#00b8df;
+            border-radius: 32px;
+
+            float: left;
+            transition: all 0.4s ease;
+            border: 2px solid white;
+            font-size: 16px;
+        }
+        .des .wbtn img
+        {
+            margin-top: 60px;
+            margin-left: -60px;
+            transition: opacity 0.5s ease;
+            -webkit-transition: opacity 0.5s ease;
+            opacity: 0.5;
+        }
+        .des .wbtn img:hover
+        {
+            transition: opacity 0.5s ease;
+            -webkit-transition: opacity 0.5s ease;
+            opacity: 1;
+            cursor: pointer;
+        }
+        .des .wbtn .btn:hover
+        {
+            background-color: #00b8df;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+      <header>
+          <ul>
+              <li><a href="#">FIS解决方案</a></li>
+              <li><a href="#">首页</a></li>
+              <li><a href="#">FIS官网</a></li>
+              <li><a href="#">FEX官网</a></li>
+          </ul>
+     </header>
+     <div class="wrap">
+         <div class="content">
+              <h3 class="text">使用<a href="#"> FIS </a> ,轻松定制属于你的解决方案</h3>
+             <ul class="list">
+                 <li><a id="tt" class="active" title="点击查看介绍" href="#">fis-plus</a></li><li>
+                 <a class="activ" title="点击查看介绍" href="#">yog2</a></li><li>
+                 <a title="点击查看介绍" href="#">jello</a></li><li>
+                 <a title="点击查看介绍" href="#">pure</a></li><li>
+                 <a title="点击查看介绍" href="#">gois</a></li>
+             </ul>
+              <div class="box">
+                  <div class="des">
+                      <ul>
+                          <li id="fis-plus" class="show"> 基于PHP的前端集成解决方案，面向自动化，减少人工管理静态资源成本和风险，
+                              全自动优化页面性能、减少服务器开销；面向定制化，包括PC、Mobile、I18n等大量个性化解决方案。
+                          </li>
+                          <li id="yog2" class="hide">
+                              基于Node的前后端解决方案
+                          </li>
+                          <li id="jello" class="hide">
+                              基于Java的前端集成解决方案
+                          </li>
+                          <li id="pure" class="hide">
+                              纯前端模块化解决方案
+                          </li>
+                          <li id="gois" class="hide">
+                              基于Go的前后端解决方案
+                          </li>
+                      </ul>
+                      <div class="wbtn">
+                          <a class="btn" href="#">查看详细</a>
+                          <img src="github.png">
+                      </div>
+                  </div>
+              </div>
+         </div>
+     </div>
+<script src="jquery-2.1.1.min.js"></script>
+<script>
+  $(function(){
+      $(".list a").click(function(){
+             $(".list a").attr("class","");
+             $(this).attr("class","active");
+          /*alert($(this).attr("id"));
+          if($(this).innerHTML==$(".des li")[0].id)
+             alert($(".des li")[0].id)*/
+          var that=$(this);
+          $(".des li").attr("class","hide");
+          $(".des li").each(function(index,ele){
+              if(that.text()==$(this).attr("id"))
+               ele.className="show";
+          })
+      })
+  })
+</script>
+</body>
+</html>
