@@ -2,11 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1"/>
-    <title>music player</title>
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scalable=1"/>
+    <title>旧日的足迹</title>
+    <style type="text/css">
+        header{
+            background-color: #cacaca;
+            height: 20%;
+        }
+        .picWrap{
+            border-radius: 50%;
+            margin: 10px 0 0 10px;
+            background: blue;
+            overflow: hidden;
+            display: inline-block;
+        }
+        .picRotate{
+            -webkit-transform: rotate(360deg);
+            -webkit-transition: all 10s;
+        }
+        .picWrap img{
+            height: 100%;
+            width: auto;
+        }
+    </style>
 </head>
 <body>
-  <audio autoplay src="music/Beyondjy.mp3">不支持audio标签</audio>
-<!--  <video controls="controls" src="video/videoc.mp4">不支持video标签</video>-->
+  <header id="header">
+    <div class="picWrap">
+        <img src="img/me.jpg" alt="logo" />
+    </div>
+  </header>
+<audio id="audio" autoplay src="https://hgithub520.github.io/home/home/player/music/Beyondjy.mp3">不支持audio</audio>
 </body>
+<script src="jquery-2.1.1.min.js"></script>
+<script>
+    window.onload=function () {
+        var deviceHeight=window.screen.height;
+        document.body.style.height=(deviceHeight-20)+"px";
+
+        var header=document.getElementById("header");
+        var headerHeight=parseInt(getComputedStyle(header)['height']);
+        $(".picWrap").height(headerHeight-20).width(headerHeight-20);
+        var rotateDeg=0;
+
+        var audio=document.getElementById("audio");
+        for(i in audio)
+        {
+            console.log(i+":"+audio[i]);
+        }
+
+        if(audio.readyState==4){
+            var timer=setInterval(function (){
+                if(rotateDeg>=360)
+                    rotateDeg=0;
+                $(".picWrap").css("-webkit-transform","rotate("+rotateDeg+"deg)");
+                rotateDeg+=2;
+            },50);
+        }
+       /* var timer=setInterval(function (){
+            if(rotateDeg>=360)
+                    rotateDeg=0;
+            $(".picWrap").css("-webkit-transform","rotate("+rotateDeg+"deg)");
+            rotateDeg+=2;
+        },50)*/
+    }
+</script>
 </html>
