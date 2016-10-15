@@ -22,7 +22,7 @@
         }
         .picWrap img{
             height: 100%;
-            width: auto;
+            width: 150%;
         }
     </style>
 </head>
@@ -52,13 +52,19 @@
         }
 
         if(audio.readyState==4){
-            var timer=setInterval(function (){
+     /*       var timer=setInterval(function (){
                 if(rotateDeg>=360)
                     rotateDeg=0;
                 $(".picWrap").css("-webkit-transform","rotate("+rotateDeg+"deg)");
                 rotateDeg+=2;
-            },50);
+            },50);*/
         }
+        var timer=setInterval(function (){
+            if(rotateDeg>=360)
+                rotateDeg=0;
+            $(".picWrap").css("-webkit-transform","rotate("+rotateDeg+"deg)");
+            rotateDeg+=2;
+        },50);
        /* var timer=setInterval(function (){
             if(rotateDeg>=360)
                     rotateDeg=0;
