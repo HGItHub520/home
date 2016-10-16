@@ -16,13 +16,42 @@
         .picWrap{
             border-radius: 50%;
             margin: 10px 0 0 10px;
-            background: blue;
             overflow: hidden;
             display: inline-block;
         }
         .picWrap img{
             height: 100%;
             width: 150%;
+        }
+        .textWrap{
+            float:right;
+            margin-top: 10px;
+            margin-right: 10px;
+            overflow: hidden;
+        }
+        .textWrap h2{
+            margin: 6px 0 0 6px;
+            letter-spacing: 18px;
+            text-align: center;
+            color: bisque;
+        }
+        .textWrap .don{
+            display: inline-block;
+           /* -webkit-transform: translate(0,-30px);*/
+            -webkit-transform: translate(0,-40px);
+            -webkit-transition: all 2s;
+        }
+        .textWrap .down{
+            -webkit-transform: translate(0,0);
+            -webkit-transition: all .4s;
+        }
+        .textWrap .textShow{
+            color: blanchedalmond;
+            font-weight: bolder;
+            font-size: 18px;
+            letter-spacing: 6px;
+           /* text-align: center;*/
+            margin: 0 0 0 26px;
         }
     </style>
 </head>
@@ -31,13 +60,19 @@
     <div class="picWrap">
         <img src="img/me.jpg" alt="logo" />
     </div>
+    <div class="textWrap">
+       <h2><span class="don">旧</span><span class="don">日</span><span class="don"
+       >的</span><span class="don">足</span><span class="don">迹</span></h2>
+        <p class="textShow"></p>
+    </div>
   </header>
 <audio id="audio" src="https://hgithub520.github.io/home/home/player/music/Beyondjy.mp3">不支持audio</audio>
 </body>
 <script src="jquery-2.1.1.min.js"></script>
 <script>
-    var timer=null,rotateDeg=0;
+    var timer=null,rotateDeg=0,timer2=null;
     var audio=document.getElementById("audio");
+    var textData=['一','些','事',',','一','些','情','<br/>','&nbsp;','一','些','好','音','乐','!'];
     function createXHR(url) {
         try{return new XMLHttpRequest();}catch(e){}
         try{return new ActiveXObject("Msxml2.XMLHTTP.6.0")}catch(e){}
@@ -64,12 +99,37 @@
     }
     window.onload=function () {
         var deviceHeight=window.screen.height;
+        var deviceWidth=window.screen.width;
         document.body.style.height=(deviceHeight-20)+"px";
 
         var header=document.getElementById("header");
         var headerHeight=parseInt(getComputedStyle(header)['height']);
         $(".picWrap").height(headerHeight-20).width(headerHeight-20);
+        $(".textWrap").height(headerHeight-20).width(deviceWidth-headerHeight-20);
 
+        setTimeout(function () {
+            $(".textWrap .don").eq(0).addClass("down");
+        },1000);
+        setTimeout(function () {
+            $(".textWrap .don").eq(1).addClass("down");
+        },2000);
+        setTimeout(function () {
+            $(".textWrap .don").eq(2).addClass("down");
+        },3000);
+        setTimeout(function () {
+            $(".textWrap .don").eq(3).addClass("down");
+        },4000);
+        setTimeout(function () {
+            $(".textWrap .don").eq(4).addClass("down");
+        },5000);
+         var inputText=$(".textWrap .textShow")[0],i=0;
+        timer2=setInterval(function () {
+            inputText.innerHTML+=textData[i];
+            if(i>textData.length-2){
+                clearInterval(timer2);
+            }
+            i++;
+        },400);
         document.addEventListener('touchstart',handle);
         document.addEventListener('touchstart',function (e) {
             var event=e?e:window.event;
