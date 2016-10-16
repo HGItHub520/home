@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1"/>
     <title>旧日的足迹</title>
     <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
         header{
             background-color: #cacaca;
             height: 20%;
@@ -37,7 +41,6 @@
         }
         .textWrap .don{
             display: inline-block;
-           /* -webkit-transform: translate(0,-30px);*/
             -webkit-transform: translate(0,-40px);
             -webkit-transition: all 2s;
         }
@@ -53,6 +56,24 @@
            /* text-align: center;*/
             margin: 0 0 0 26px;
         }
+
+        .content{
+            margin-top:36%;
+        }
+        .content .box{
+            width: 100%;
+        }
+        .content .box img{
+            width: 100%;
+            height: auto;
+        }
+        .content h3{
+            color: #cacaca;
+        }
+        .content p{
+            text-indent: 28px;
+            color: #bbbbbb;
+        }
     </style>
 </head>
 <body>
@@ -66,6 +87,19 @@
         <p class="textShow"></p>
     </div>
   </header>
+  <div class="content">
+      <div class="box box1">
+          <h3>一切的孤单都不需要答案</h3>
+        <p class="p1">
+           一想，2016年了，已经没有了18岁青涩明媚的光阴，从小一直读书到离开校园走进社会，这一过程好像使人一下子便失去了少年时光。来到一个金钱驱动着人们前进的社会。
+            我好像有一种措手不及地反应不过来的错觉。是认为自己还很年轻吗？不是，只是觉得连自己想做什么都会很迷惘，一直含糊不定。
+        </p>
+        <p>
+            在农村里长大的孩子，到这个年经，似乎就一定要找个伴侣，成家过日子，那样才正常。
+        </p>
+          <img src="img/onep.jpg">
+      </div>
+  </div>
 <audio id="audio" src="https://hgithub520.github.io/home/home/player/music/Beyondjy.mp3">不支持audio</audio>
 </body>
 <script src="jquery-2.1.1.min.js"></script>
