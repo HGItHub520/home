@@ -16,10 +16,6 @@
             overflow: hidden;
             display: inline-block;
         }
-        .picRotate{
-            -webkit-transform: rotate(360deg);
-            -webkit-transition: all 10s;
-        }
         .picWrap img{
             height: 100%;
             width: 150%;
@@ -32,7 +28,7 @@
         <img src="img/me.jpg" alt="logo" />
     </div>
   </header>
-<audio id="audio" autoplay src="https://hgithub520.github.io/home/home/player/music/Beyondjy.mp3">不支持audio</audio>
+<audio id="audio" controls autoplay src="https://hgithub520.github.io/home/home/player/music/Beyondjy.mp3">不支持audio</audio>
 </body>
 <script src="jquery-2.1.1.min.js"></script>
 <script>
@@ -50,18 +46,18 @@
         {
             console.log(i+":"+audio[i]);
         }
-        audio.oncanplay=function () {
+        audio.onclick=function () {
             alert("ok");
             console.log("canplay")
         };
 
         if(audio.readyState==4){
-/*            var timer=setInterval(function (){
+            var timer=setInterval(function (){
                 if(rotateDeg>=360)
                     rotateDeg=0;
                 $(".picWrap").css("-webkit-transform","rotate("+rotateDeg+"deg)");
                 rotateDeg+=2;
-            },50);*/
+            },50);
         }
        /* var timer=setInterval(function (){
             if(rotateDeg>=360)
